@@ -61,8 +61,8 @@ public class changemainallocatejava extends HttpServlet {
                 }   
                 if(c == 1)
                 {
-                PreparedStatement ps1=con.prepareStatement("update vacant_room set ");
-                ps1.setString(1,sid);
+                PreparedStatement ps1=con.prepareStatement("update vacant_room set gradu =? and year =? and seat=? where sid=? ");
+                ps1.setString(1,gra);
                 ps1.setString(2,gra);  
                 ps1.setString(3,ye);  
                 ps1.setString(4,se);  

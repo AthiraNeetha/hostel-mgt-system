@@ -188,6 +188,10 @@
         <servlet-name>changemainallocatejava</servlet-name>
         <servlet-class>changemainallocatejava</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>studroomdisplay</servlet-name>
+        <servlet-class>studroomdisplay</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>reg</servlet-name>
         <url-pattern>/reg</url-pattern>
@@ -375,6 +379,10 @@
     <servlet-mapping>
         <servlet-name>changemainallocatejava</servlet-name>
         <url-pattern>/changemainallocatejava</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>studroomdisplay</servlet-name>
+        <url-pattern>/studroomdisplay</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

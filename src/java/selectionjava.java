@@ -59,6 +59,17 @@ public class selectionjava extends HttpServlet {
                         c++;
                     }
                 }   
+                PreparedStatement stmt1=con.prepareStatement("select * from stud_room");
+                ResultSet rs1=stmt1.executeQuery(); 
+                int c=0;
+                while(rs.next())
+                {
+                    String id= rs.getString(1);
+                    if(id.equals(MyGlobals.Gname))
+                    {
+                        c++;
+                    }
+                }   
                 if(c ==0 )
                 {
                 PreparedStatement ps1=con.prepareStatement("insert into room_mess values(?,?,?)");
