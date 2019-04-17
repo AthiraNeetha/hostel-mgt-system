@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <script type="text/javascript">
+			function validateMe()
+			{
+				var empt1 = document.forms["form1"]["t1"].value;
+                                var empt2 = document.forms["form1"]["t2"].value;
+                                var empt3 = document.forms["form1"]["t3"].value;
+                                if (empt1=="" || empt2=="")
+                                {
+                                    
+                                 alert("Please input both username and password");
+                                 return false;
+                                }
+                                
+                                else if(document.form1.t3.selectedIndex == "")
+                                {
+                                    alert("please select user type");
+                                    return false;
+                                }
+                                
+                                else 
+                                {
+                                   return true;
+                                }
+			}
+		</script>
+    </head>
+    <body>
+	<center>
+        <form  target="_parent" method="post" action="javalog" name="form1" >
+            <br>
+            <fieldset style="width: 500px;height :350px;border-color:blueviolet">
+                <legend >LOGIN</legend>
+                <br>
+               
+                <img src="user.jpg" width="45" height="45">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" name="t1" placeholder="user name" maxlength="12" size="22"><br><br><br>
+                
+                <img src="pass.jpg" width="45" height="45">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="password" name="t2" placeholder="password" maxlength="12" size="23"><br><br><br><br>
+                
+                User Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <select  style="width: 150px;" name="t3" id="t3">
+                         <option name="o">-- select user -- </option>
+                        <option name="o1">STUDENT</option>
+                        <option name="o2">WARDEN</option>
+                         <option name="o3">ADMINISTRATOR</option>
+                        
+                </select><br><br><br><br>
+                <input type ="submit" value="LOGIN" style="font-size: 20px;font-family: Magneto;" onClick="return validateMe(this.form);">
+            </fieldset>
+            <br><br> 
+            <a href="changepass.html" style="font-size: 20px" >Change Password ??? </a><br>
+        </form>
+       
+    </center>		
+            
+    </body>
+</html>

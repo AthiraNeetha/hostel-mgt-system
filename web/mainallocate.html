@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript">
+                      
+			function validateMe()
+			{
+				var empt1 = document.forms["form1"]["t1"].value;
+                                var empt3 = document.forms["form1"]["t3"].value;
+                                
+                                if (empt1==""  || empt3=="" )
+                                {
+                                    
+                                 alert("Input all the values...");
+                                 return false;
+                                }
+                                else if(empt3 < 2014 || empt3 >2020)
+                                {
+                                    alert("Enter valid year...");
+                                    return false;
+                                }
+                               else 
+                                {
+                                   return true;
+                                }
+                            }
+                        function isNumberKey1(evt)
+                        {
+                                var charCode = (evt.which) ? evt.which : event.keyCode
+                                if (charCode > 31 && (charCode < 48 || charCode > 57))
+                                {
+                                    alert("Numbers only..!!");
+                                    return false;
+                                }
+                                return true;
+                        }
+			
+		</script>
+                
+        <style>
+            
+
+
+
+  .content {
+            position: absolute;
+            bottom: 4;
+            background: rgb(0, 0, 0); /* Fallback color */
+            background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+            color: #f1f1f1;
+            width: 30%;
+            padding: 60px;
+            margin-left: 300px
+            }
+        </style>
+    </head>
+    
+    </head>
+    
+    
+   <body style='background-image: url(imaging.jpeg); background-size: cover; background-repeat: no-repeat; background-position: top;'>
+        <form action="mainallocatejava" name="form1" method="post" >
+    <center>
+        <br> <h2>ROOM ALLOCATION</h2>
+        <div class="container" >
+            <div class="content">
+            <input type="text" name="t1" placeholder="ROOM NO" size="35" style="height:25px;" maxlength="3" onkeypress="return isNumberKey1(event) "><br><br>
+            <select required  name="t2" style="width : 240px;height:30px;" >
+            <option value="">--- Graduation Type ---</option>
+            <option name="g" value="UG">UG</option>
+            <option name="g" value="PG">PG</option>
+            </select><br><br>
+           <input type="text" name="t3" placeholder="Year of Enrollment" size="35" style="height:25px;" onkeypress="return isNumberKey1(event)" minlength="4" maxlength="4"><br><br>
+            <select  required name="t4" style="width : 240px;height:30px;" >
+            <option value="">-- Seating Capacity of Room --</option>
+            <option name="s" value="1">1</option>
+            <option name="s" value="2">2</option>
+            <option name="s" value="3">3</option>
+            <option name="s" value="4">4</option>
+            </select><br><br><br>
+          
+            <button type="submit" style="width:80px;height:30px" onClick="return validateMe(this.form);">ALLOCATE</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" value="CANCEL" style="height:30px">
+        </div>
+        </div>
+
+    </center>
+        </form>
+    </body>
+</html>

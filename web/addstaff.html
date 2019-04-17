@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript">
+                      function isNumberKey(evt)
+                      {
+                            var charCode = (evt.which) ? evt.which : event.keyCode
+                            if (!(charCode > 64 && (charCode < 91 || charCode > 96 && charCode < 123)))
+                            {
+                                alert("Alphabets only..!!");
+                                return false;
+                            }
+                            return true;
+                      }
+			function validateMe()
+			{
+				var empt1 = document.forms["form1"]["t1"].value;
+                                var empt2 = document.forms["form1"]["t2"].value;
+                                var empt3 = document.forms["form1"]["t3"].value;
+                                var empt4 = document.forms["form1"]["t4"].value;
+                                var empt5 = document.forms["form1"]["t5"].value;
+                                var empt6 = document.forms["form1"]["t6"].value;
+                                if (empt1=="" || empt2=="" || empt3=="" || empt4=="" || empt5=="" ||empt6=="")
+                                {
+                                    
+                                 alert("Input all the values...");
+                                 return false;
+                                }
+                                
+                               else 
+                                {
+                                   return true;
+                                }
+                            }
+                        function isNumberKey1(evt)
+                        {
+                                var charCode = (evt.which) ? evt.which : event.keyCode
+                                if (charCode > 31 && (charCode < 48 || charCode > 57))
+                                {
+                                    alert("Numbers only..!!");
+                                    return false;
+                                }
+                                return true;
+                        }
+			
+		</script>
+        <style>
+            
+
+
+
+  .content {
+            position: absolute;
+            bottom: 4;
+            background: rgb(0, 0, 0); /* Fallback color */
+            background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+            color: #f1f1f1;
+            width: 30%;
+            padding: 60px;
+            margin-left: 300px
+            }
+        </style>
+    </head>
+    
+    </head>
+    
+    
+   <body style='background-image: url(imaging.jpeg); background-size: cover; background-repeat: no-repeat; background-position: top;'>
+        <form action="staffadd" name="form1" method="post" >
+    <center>
+        <br> <h2>STAFF REGISTRATION</h2>
+        <div class="container" >
+            <div class="content">
+            <input type="text" name="t1" placeholder="Staff ID" size="35" style="height:25px;"><br><br>
+            <input type="text" name="t2" placeholder="Staff Name" size="35" style="height:25px;" onkeypress="return isNumberKey(event)"><br><br>
+            <input type="text" name="t3" placeholder="Mobile No" size="35" style="height:25px;" onkeypress="return isNumberKey1(event)"><br><br>
+            <input type="email" name="t4" placeholder="Email" size="35" style="height:25px;"><br><br>
+            <input type="text" name="t5" placeholder="Place" size="35" style="height:25px;"><br><br>
+            <input type="password" name="t6" placeholder="Password" size="35" style="height:25px;"><br><br><br>
+            <button type="submit" value="SUBMIT" style="width:70px;height:30px" onClick="return validateMe(this.form);" formaction="staffadd">SUBMIT</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" value="CANCEL" style="height:30px">
+        </div>
+        </div>
+
+    </center>
+        </form>
+    </body>
+</html>

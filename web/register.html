@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript">
+			function validateMe()
+			{
+				var empt1 = document.forms["form1"]["id"].value;
+                                var empt2 = document.forms["form1"]["pass"].value;
+                               
+                                if (empt1=="" || empt2=="")
+                                {
+                                    
+                                 alert("Please input both id and password to Login");
+                                 return false;
+                                }
+                                else 
+                                {
+                                   return true;
+                                }
+			}
+		</script>
+   <style>
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  padding: 20px;
+  height: 400px; /* Should be removed. Only for demonstration */
+}
+
+.left {
+  width: 40%;
+  
+}
+
+.right {
+  width: 45%;
+}
+
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+</head>
+<body>
+
+
+    <form name="form1" action="selectvalidate">
+<div class="row">
+  <div class="column left" >
+      
+    <br><br><br><br><input type= "button"  style="font-size:20px;font-family:Lucida Calligraphy;background-color:goldenrod" onclick="location.href='but1.html'" value="Click here for Registration &#13;&#10; UG and PG students"><br><br><br>
+     <input type= "button" style="font-size:20px;font-family:Lucida Calligraphy;background-color:goldenrod" onclick="location.href='but2.html'" formtarget="_blank" value="Click here for Registration &#13;&#10; MPhil and PhD scholars">
+  </div> 
+  <div class="column right" style="background-color:lightblue;font-size:20px;">
+       <center>
+      <h2><img src="candidate.jpg" height="70" width="70">&nbsp;&nbsp;&nbsp;&nbsp;Candidate Login</h2>
+     
+      <br>Hostel Admission ID:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="text" name="id" size="20" ><br><br><br>
+      Password :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="password" name="pass" size="20" ><br>
+      <p style="font-size:14px;color:#e6005c">default password is your date of birth<br>in &nbsp; ' yyyy-mm-dd '  &nbsp; format</p>
+        <br><br><input type ="submit" value="Login" style="font-size:20px; background-color: yellowgreen;" onClick="return validateMe(this.form);">
+      </center>
+  </div>
+</div>
+    </form>
+</body>
+</html>

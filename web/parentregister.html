@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+         function isNumberKey(evt)
+            {
+                var charCode = (evt.which) ? evt.which : event.keyCode
+                if (!(charCode > 64 && (charCode < 91 || charCode > 96 && charCode < 123)))
+                {
+                    alert("Alphabets only..!!");
+                    return false;
+                }
+                     return true;
+            }
+            function required()
+             {
+                var empt1 = document.forms["form1"]["t1"].value;
+                var empt2 = document.forms["form1"]["t2"].value;
+                var empt3 = document.forms["form1"]["t3"].value;
+                var empt4 = document.forms["form1"]["t4"].value;
+                var empt5 = document.forms["form1"]["t5"].value;
+                var empt6 = document.forms["form1"]["t6"].value;
+                var empt7 = document.forms["form1"]["t7"].value;
+                var empt8 = document.forms["form1"]["t8"].value;
+                var empt9 = document.forms["form1"]["t9"].value;
+                if (empt1=="" || empt2=="" || empt3=="" || empt4=="" || empt5=="" || empt6=="" || empt7=="" || empt8=="" ||empt9=="")
+                {
+                    alert("Please input all the values");
+                    return false;
+                }
+                else 
+                {
+                    return true;
+                }
+              }
+              function isNumberKey1(evt)
+              {
+                var charCode = (evt.which) ? evt.which : event.keyCode
+                if (charCode > 31 && (charCode < 48 || charCode > 57))
+                {
+                    alert("Numbers only..!!");
+                    return false;
+                }
+                     return true;
+            }
+            </script>
+    </head>
+   <body bgcolor="lavender">
+        <form action ="myparent" method ="post" name="form1" onsubmit="return required();">
+            <center>
+                <h1><u>PARENT REGISTRATION</u></h1><br>
+           
+          <fieldset style="width: 500px;height :600px;border-color:blueviolet">
+              
+              <h3>Student Details</h3>
+              1.  Student ID : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" name="t1" size="30" maxlenth="12"><br><br>
+                  
+                2. Parent Password : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="password" name ="t2" size="30" minlength="8" maxlength="12"><br><br>
+                    <h3>Parent Details</h3>
+                    
+                1.   Name :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" maxlength="20" name ="t3" size ="30" onkeypress = "return isNumberKey(event)"><br><br>
+                2.  Address :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" maxlength="30" name="t4" size="30"><br><br>
+                3.  Contact no:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type ="text" name="t5" size="30" minlength="10" maxlength="12" onkeypress="return isNumberKey1(event)"><br><br>  
+                4.  Email id :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <input type="email" name="t6" maxlength="20" size="30"><br><br>
+                
+               <h3>Local Guardian Details</h3>
+                1.   Name :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" name ="t7" size ="30" maxlength="20" onkeypress=" return isNumberKey(event)"><br><br>
+                2.  Address :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" name="t8" size="30" maxlength="30"><br><br>
+                3.  Contact no:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type ="text" name="t9" size="30" minlength="10" maxlenth="12" onkeypress="return isNumberKey1(event)"><br><br>  
+               
+                <input type="submit" value="REGISTER" style="font-size:25px;font-family: Stencil;">&nbsp;&nbsp;&nbsp;
+                
+                <input type="reset" value="CANCEL" style="font-size:25px;font-family: Stencil;">
+                </center>
+            
+        </fieldset>   
+        </form>
+    </body>
+</html>

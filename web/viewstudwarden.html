@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <style>
+             .content {
+            position: absolute;
+            bottom: 4;
+            background: rgb(0, 0, 0); /* Fallback color */
+            background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+            color: #f1f1f1;
+            width: 30%;
+            padding: 60px;
+            margin-left: 300px
+            }
+        </style>
+        <script>
+                        function validateMe()
+			{
+				var empt1 = document.forms["form1"]["t1"].value;
+                                var empt2 = document.forms["form1"]["t2"].value;
+                                var empt3 = document.forms["form1"]["t3"].value;
+                                var empt4 = document.forms["form1"]["t4"].value;
+                                if (empt1=="" && empt2=="" && empt3=="" && empt4=="")
+                                {
+                                    alert("Enter any of the required value...");
+                                    return false;
+                                }
+                                
+                               else 
+                                {
+                                   return true;
+                                }
+                        }
+                            
+        </script>
+    </head>
+    <body>
+      <body style='background-image: url(imaging.jpeg); background-size: cover; background-repeat: no-repeat; background-position: top;'>
+        <form name="form1" method="post">
+    <center>
+        <br> <h2>VIEW STUDENT DETAILS</h2>
+        <div class="container">
+        <div class="content">
+             <fieldset style="width: 300px;height :50px;border-color:white">
+            
+            Enter Student ID : <input type="text" name="t1" size="20" maxlength="12">
+            <br><button type="submit" value="ENTER" style="width:70px;height:30px" onClick="return validateMe(this.form);" formaction="form1">SEARCH</button><br><br><br>
+             </fieldset><br>
+            <fieldset style="width: 300px;height :50px;border-color:white">
+            Graduation type :
+            <select  style="width: 150px;" name="t2" id="t2">
+                         <option >         </option>
+                        <option name="o1">UG</option>
+                        <option name="o2">PG</option>
+                        
+            </select><br><button type="submit" value="ENTER" style="width:70px;height:30px" onClick="return validateMe(this.form);" formaction="form2">SEARCH</button><br><br><br>
+            </fieldset><br>
+            <fieldset style="width: 300px;height :50px;border-color:white">
+            Course Enrolled :
+                <select name ="t3" style="width : 150px;" place holder="enter course">
+                    <option> </option>
+                    <option>BCOM</option>
+                    <option>BSC VISUAL MEDIA</option>
+                    <option>BACHELOR OF FINE ARTS</option>
+                    <option>--------------------------------------</option>
+                    <option>INT.BCA-MCA</option>
+                    <option>INT.MSC MATHEMATICS</option>
+                    <option>INT.MSC LITERATURE</option>
+                    <option>---------------------------------------</option>
+                    <option>MCOM</option>
+                    <option>MA VISUAL MEDIA</option>
+                    <option>MASTER OF FINE ARTS</option>
+                    <option>MJMC</option>
+                </select><br><button type="submit" value="ENTER" style="width:70px;height:30px" onClick="return validateMe(this.form);" formaction="form3">SEARCH</button><br><br><br>
+            </fieldset><br>
+            <fieldset style="width: 300px;height :50px;border-color:white">
+                Year of enrollment :
+                     <select name ="t4" style="width : 150px;">
+                    <option> </option>
+                    <option>2019</option>
+                    <option>2020</option>
+                    <option>2021</option>
+                    <option>2022</option>
+                    <option>2023</option>
+                    <option>2024</option>
+                    <option>2025</option>
+                     </select>
+                <br><button type="submit" value="ENTER" style="width:70px;height:30px" onClick="return validateMe(this.form);" formaction="form4">SEARCH</button><br><br><br>
+                </fieldset>       
+           
+            <br><br><input type="reset" value="CANCEL" style="height:30px">
+        </div>
+        </div>
+
+    </center>
+        </form>
+    </body>  
+    </body>
+</html>

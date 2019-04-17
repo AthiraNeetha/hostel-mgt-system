@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+             .content {
+            position: absolute;
+            bottom: 4;
+            background: rgb(0, 0, 0); /* Fallback color */
+            background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+            color: #f1f1f1;
+            width: 30%;
+            padding: 60px;
+            margin-left: 300px
+            }
+        </style>
+        <script>
+            function validateMe()
+			{
+				
+                                var empt2 = document.forms["form1"]["t2"].value;
+                                if (empt2=="")
+                                {
+                                    alert("Enter both the values");
+                                    return false;
+                                }
+                                
+                               else 
+                                {
+                                   return true;
+                                }
+                            }
+                         
+        </script>
+    </head>
+    
+    
+    <body style='background-image: url(imaging.jpeg); background-size: cover; background-repeat: no-repeat; background-position: top;'>
+    <form name="form1" method="post" action="emailchange">
+    <center>
+        <br><br> <h2>CHANGE EMAIL-ID</h2>
+        <div class="container">
+        <div class="content">
+            
+            <input type="email" name="t2" placeholder="New mail ID" size="35" style="height:25px;"><br><br><br>
+            <button type="submit" value="CHANGE" style="width:70px;height:30px" onClick="return validateMe(this.form);">CHANGE</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" value="CANCEL" style="height:30px">
+        </div>
+        </div>
+    </center>
+        
+    </form>
+    </body>
+</html>

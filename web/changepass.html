@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script>
+                        function validateMe()
+			{
+				var empt1 = document.forms["form1"]["t1"].value;
+                                var empt2 = document.forms["form1"]["t2"].value;
+                                var empt3 = document.forms["form1"]["t3"].value;
+                                var empt4 = document.forms["form1"]["t4"].value;
+                                if (empt1=="" || empt2=="" || empt3 =="" || empt4 =="")
+                                {
+                                    
+                                 alert("Please input all the values");
+                                 return false;
+                                }
+                                else if(empt3 != empt4)
+                                {
+                                    alert("New Password doesn't matches, Try again..");
+                                    return false;
+                                }
+                                else 
+                                {
+                                   return true;
+                                }
+			}
+		</script>
+    </head>
+    <body bgcolor="
+	 #ffe6e6">
+        <form action="AllPass" method="post" name="form1">
+            <center><br><br><br><br><br><br>
+                <fieldset style="width: 400px;height :340px;border-color:white"><br>
+                 <h3>Change Password</h3>
+                 ID:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 <input type="text" name="t1" maxlength="12" size="20"> <br><br>
+                 User Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select  style="width: 150px;" name="t5" id="t5">
+                         <option name="o">-- select user -- </option>
+                         <option name="o4">PARENT</option>
+                        <option name="o1">STUDENT</option>
+                        <option name="o2">WARDEN</option>
+                         <option name="o3">ADMINISTRATOR</option>
+                 </select><br><br>
+                 Current Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="t2" size="20" maxlength="12"><br><br>
+                 New Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" minlength="8" maxlength="12" name="t3" size="20"><br><br>
+                 Confirm Password:&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" minlength="8" maxlength="12" name="t4" size="20"><br><br><br>
+                 <input type="submit" value="Change Password" onClick="return validateMe(this.form);">
+                </fieldset>
+            </center>
+        </form>
+    </body>
+</html>

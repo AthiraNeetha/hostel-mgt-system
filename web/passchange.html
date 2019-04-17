@@ -1,0 +1,55 @@
+
+
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+                        function validateMe()
+			{
+				var empt1 = document.forms["form1"]["t1"].value;
+                                var empt2 = document.forms["form1"]["t2"].value;
+                                var empt3 = document.forms["form1"]["t3"].value;
+                                var empt4 = document.forms["form1"]["t4"].value;
+                                if (empt1=="" || empt2=="" || empt3 =="" || empt4 =="")
+                                {
+                                    
+                                 alert("Please input all the values");
+                                 return false;
+                                }
+                                else if(empt3 != empt4)
+                                {
+                                    alert("New Password doesn't matches, Try again..");
+                                    return false;
+                                }
+                                else 
+                                {
+                                   return true;
+                                }
+			}
+		</script>
+    </head>
+    <body bgcolor="
+	 #ffe6e6">
+        <form action="passc" method="post" name="form1">
+            <center><br><br><br><br><br><br>
+                <fieldset style="width: 400px;height :340px;border-color:white"><br>
+                 <h3>Change Password</h3>
+                 Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 <input type="text" name="t1" size="20"> <br><br>
+                 Current Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="t2" size="20"><br><br>
+                 New Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="t3" size="20"><br><br>
+                 Confirm Password:&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="t4" size="20"><br><br><br>
+                 <input type="submit" value="Change Password" onClick="return validateMe(this.form);">
+                </fieldset>
+            </center>
+        </form>
+    </body>
+</html>

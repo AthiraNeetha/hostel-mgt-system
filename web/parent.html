@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script type="text/javascript">
+			function validateMe()
+			{
+				var empt1 = document.forms["form1"]["t1"].value;
+                                var empt2 = document.forms["form1"]["t2"].value;
+                               
+                                if (empt1=="" || empt2=="")
+                                {
+                                    
+                                 alert("Please input both username and password");
+                                 return false;
+                                }
+                                
+                                else 
+                                {
+                                   return true;
+                                }
+			}
+		</script>
+    </head>
+    <body>
+	<center>
+        <form  target="_parent" method="post" action="parentlog" name="form1" >
+            <br>
+            <fieldset style="width: 500px;height :300px;border-color:blueviolet">
+                <legend >PARENTS LOGIN AREA</legend>
+                <br>
+                <img src="user.jpg" width="45" height="45">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" name="t1" placeholder="Name" size="22"><br><br><br>
+                
+                <img src="pass.jpg" width="45" height="45">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="password" name="t2" placeholder="Your password" size="23"><br><br><br><br>
+                
+               <input type ="submit" value="LOGIN" style="font-size: 20px;font-family: Magneto;" onClick="return validateMe(this.form);">
+            </fieldset>
+            <br><br> 
+            <a href="parentregister.html" style="font-size: 20px" >Not Registered??? </a><br>
+            <br><br> 
+            <a href="changepass.html" style="font-size: 20px" >Change Password ??? </a><br>
+        </form>
+       
+    </center>		
+            
+    </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <style>
+             .content {
+            position: absolute;
+            bottom: 4;
+            background: rgb(0, 0, 0); /* Fallback color */
+            background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+            color: #f1f1f1;
+            width: 30%;
+            padding: 60px;
+            margin-left: 300px
+            }
+        </style>
+        <script>
+            function validateMe()
+			{
+				var empt1 = document.forms["form1"]["t1"].value;
+                                if (empt1=="")
+                                {
+                                    alert("Enter the staff id to delete");
+                                    return false;
+                                }
+                                
+                               else 
+                                {
+                                   return true;
+                                }
+                            }
+                             function isNumberKey1(evt)
+              {
+                var charCode = (evt.which) ? evt.which : event.keyCode
+                if (charCode > 31 && (charCode < 48 || charCode > 57))
+                {
+                    alert("Numbers only..!!");
+                    return false;
+                }
+                     return true;
+            }
+            
+        </script>
+    </head>
+    <body>
+      <body style='background-image: url(imaging.jpeg); background-size: cover; background-repeat: no-repeat; background-position: top;'>
+        <form name="form1" method="post" action="nochange">
+    <center>
+        <br> <h2>CHANGE LOCAL GUARDIAN CONTACT INFO</h2>
+        <div class="container">
+        <div class="content">
+             
+             <input type="text" name="t2" placeholder="New No" size="35" style="height:25px;" onkeypress=" return isNumberKey1(event)"><br><br><br>
+            <button type="submit" value="CHANGE" style="width:70px;height:30px" onClick="return validateMe(this.form);">CHANGE</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" value="CANCEL" style="height:30px">
+        </div>
+        </div>
+
+    </center>
+        </form>
+    </body>  
+    </body>
+</html>

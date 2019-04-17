@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+           
+           function isNumberKey(evt)
+            {
+                var charCode = (evt.which) ? evt.which : event.keyCode
+                if (!(charCode > 64 && (charCode < 91 || charCode > 96 && charCode < 123)))
+                {
+                    alert("Alphabets only..!!");
+                    return false;
+                }
+                     return true;
+            }
+            function required()
+             {
+                var empt1 = document.forms["form1"]["t1"].value;
+                var empt2 = document.forms["form1"]["t2"].value;
+                var empt3 = document.forms["form1"]["t3"].value;
+                var empt5 = document.getElementById("t5");
+                var empt6 = document.forms["form1"]["t6"].value;
+                var empt7 = document.forms["form1"]["t7"].value;
+                var empt8 = document.forms["form1"]["t8"].value;
+                var empt9 = document.forms["form1"]["t9"].value;
+                var empt10 = document.forms["form1"]["t10"].value;
+                if (empt1=="" || empt2=="" || empt3=="" || empt4.value=="" || empt5.value=="" || empt6=="" || empt7=="" || empt8=="" || empt9=="" || empt10=="")
+                {
+                    alert("Please input all the values");
+                    return false;
+                }
+                else 
+                {
+                    return true;
+                }
+              }
+              function isNumberKey1(evt)
+              {
+                var charCode = (evt.which) ? evt.which : event.keyCode
+                if (charCode > 31 && (charCode < 48 || charCode > 57))
+                {
+                    alert("Numbers only..!!");
+                    return false;
+                }
+                     return true;
+            }
+          
+        </script>
+        
+    </head>
+    <body bgcolor="lavender">
+        <form action ="reg" method ="post" name="form1" onsubmit="return required();">
+            <center>
+                <h1><u>REGISTRATION</u></h1><br><br>
+           
+          <fieldset style="width: 500px;height :650px;border-color:blueviolet"><br><br>
+           
+                1.  Application No :  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="text" name="t1" maxlength="12" size="20">
+                    <h5>(During UG/PG Online Registration)</h5>
+                2.  Name :  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="text" name ="t2" maxlength="20" onkeypress="return isNumberKey(event)"><br><br><br>
+                3.  Date of birth :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="date" min="1980-01-01" max="2000-12-31" name ="t3" size ="20"><br><br><br>
+              
+                4.  Graduation Type :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <select name ="t5" style="width : 150px;">
+                    <option> </option>
+                    <option>UG</option>
+                    <option>PG</option>
+                    </select><br><br><br>
+                5.  Address :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" name="t6" size="20"  maxlength="40" rowspan="20"><br><br><br>
+                6.  Contact no:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type ="text" name="t7" size="20" minlength="10" maxlength="12" onkeypress="return isNumberKey1(event)"><br><br><br>  
+                7.  Email id :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="email" name="t8" size="20"><br><br><br>
+                8. Course Enrolled :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <select name ="t9" style="width : 150px;">
+                    <option> </option>
+                    <option>BCOM</option>
+                    <option>BSC VISUAL MEDIA</option>
+                    <option>BACHELOR OF FINE ARTS</option>
+                    <option>--------------------------------------</option>
+                    <option>INT.BCA-MCA</option>
+                    <option>INT.MSC MATHEMATICS</option>
+                    <option>INT.MSC LITERATURE</option>
+                    <option>---------------------------------------</option>
+                    <option>MCOM</option>
+                    <option>MA VISUAL MEDIA</option>
+                    <option>MASTER OF FINE ARTS</option>
+                    <option>MJMC</option>
+                    </select><br><br><br>
+                9. Year of enrollment :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                     <select name ="t10" style="width : 150px;">
+                    <option> </option>
+                    <option>2019</option>
+                    <option>2020</option>
+                    <option>2021</option>
+                    <option>2022</option>
+                    <option>2023</option>
+                    <option>2024</option>
+                    <option>2025</option>
+                    </select><br><br><br>
+                <input type="submit" value="SUBMIT">
+                </center>
+            
+        </fieldset>   
+        </form>
+    </body>
+</html>

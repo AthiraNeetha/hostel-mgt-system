@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <script>
+          function validateMe()
+	  {
+		var empt1 = document.forms["form1"]["rad2"].value;
+                var empt2 = document.forms["form1"]["rad3"].value;
+                
+                if (empt1=="" || empt2=="")
+                {
+                                    
+                 alert("Please input all the values");
+                 return false;
+                }
+            
+                else 
+                {
+                    return true;
+                }
+	  }
+		</script>
+    </head>
+    <body bgcolor="#cceeff" style="align:left">
+        <form action="selectionjava" name="form1">
+    <center>
+        <br> <fieldset style="width: 500px;height :400px;border-color:blueviolet;background-color:wheat">
+                <legend >CONTINUE REGISTRATION</legend>
+                <p style="align:right;">
+                <h3>Select the required Room category : </h3>
+                4 Seater<input type ="radio" name="rad2" value="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                3 Seater<input type ="radio" name="rad2" value="3"><br><br>
+                2 Seater<input type ="radio" name="rad2" value="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                1 Seater<input type ="radio" name="rad2" value="1"><br><br>
+                <h3>Select the mess plan required: </h3>
+                1. Vegetarian <input type="radio" name="rad3" value="veg"><br><br>
+                2. Non - Vegetarian<input type ="radio" name="rad3" value="non-veg"><br><br><br>
+                
+                <input type="submit" value ="SUBMIT" onClick="return validateMe(this.form);">
+                
+        </fieldset>
+    </center>
+        </form>
+    </body>
+</html>
