@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author KHSCI5MCA16099
  */
-public class selectionjava extends HttpServlet {
+public class studentvacate extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,66 +34,27 @@ public class selectionjava extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            String room = request.getParameter("rad2");
-            String mess = request.getParameter("rad3");
-            
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet staffadd</title>");            
+            out.println("<title>Servlet studentvacate</title>");            
             out.println("</head>");
-            out.println("<body>");
-         
-            try
-            {
-                Class.forName("com.mysql.jdbc.Driver");
-                com.mysql.jdbc.Connection con=(com.mysql.jdbc.Connection) DriverManager.getConnection("jdbc:mysql://localhost/hostel","root","");  
-                PreparedStatement stmt=con.prepareStatement("select * from room_mess");
-                ResultSet rs=stmt.executeQuery(); 
-                int c=0;
-                while(rs.next())
-                {
-                    String id= rs.getString(1);
-                    if(id.equals(MyGlobals.Gname))
-                    {
-                        c++;
-                    }
-                }   
-                PreparedStatement stmt1=con.prepareStatement("select * from stud_room");
-                ResultSet rs1=stmt1.executeQuery(); 
-                int c1=0;
-                while(rs1.next())
-                {
-                    String id= rs1.getString(1);
-                    if(id.equals(MyGlobals.Gname))
-                    {
-                        c1++;
-                    }
-                }   
-                if(c==0 && c1==0)
-                {
-                PreparedStatement ps1=con.prepareStatement("insert into room_mess values(?,?,?)");
-                ps1.setString(1,MyGlobals.Gname);
-                ps1.setString(2,room);
-                ps1.setString(3, mess);
-                ps1.executeUpdate();
-                out.println("<script>alert('details added');</script>");
-                request.getRequestDispatcher("register.html").include(request, response);
-                
-                }
-               else
-                {
-                   out.println("<script>alert('Your requirements are already noted...');</script>");
-                   request.getRequestDispatcher("register.html").include(request, response);
-                  
-                }
-            con.close();  
-
-            }
-            catch(Exception e)
-            {
-                out.println(e);
-            }
+            out.println("<body bgcolor=lavender>");
+              out.println("<center>");
+            out.println("<form action=vacatepermission");
+          
+            out.println("<br><br><br><fieldset style=width:300px;height:200px>");
+            out.println("<br><br><br>STUDENT ID : ");
+            out.println("<input type=text name=t1 value=\"" + MyGlobals.Gname + "\">");
+            out.println("<br><br>VACATING DATE :  ");
+            out.println("<input type=date min=2019-05-31 max=2021-12-31 size=30 name=t2");
+           
+            out.println("<br><br><br><input type='submit' value='SAVE'>");
+             out.println("<input type='reset' value='CANCEL'>");
+            out.println("</fieldset>");
+            
+            out.println("</form>");
+            out.println("</center>");
             out.println("</body>");
             out.println("</html>");
         }

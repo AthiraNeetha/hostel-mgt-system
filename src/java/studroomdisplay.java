@@ -6,6 +6,9 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -36,7 +39,39 @@ public class studroomdisplay extends HttpServlet {
             out.println("<head>");
             out.println("<title>Servlet studroomdisplay</title>");            
             out.println("</head>");
-            out.println("<body>");
+              out.println("<body style='background-image: url(picture5.jpg); background-size: cover; background-repeat: no-repeat; background-position: top;'>");
+          try
+            {
+                Class.forName("com.mysql.jdbc.Driver");
+                java.sql.Connection con=(java.sql.Connection) DriverManager.getConnection("jdbc:mysql://localhost/hostel","root","");
+                PreparedStatement stmt=con.prepareStatement("select reg.appno ,reg.name ,s.rno from registerug2 reg INNER JOIN stud_room s ON reg.appno = s.appno  ORDER BY rno ASC");
+               
+                ResultSet rs=stmt.executeQuery(); 
+                int i=0;
+                out.println("<center><h1 style=color:Navy blue>STUDENT ROOM ALLOCATION DETAILS</h1></center>");
+                out.println("<center>");
+                out.println("<table border=1 width=50% height=50% align=center>"
+                    + "<tr><th>STUDENT NO </th><th> STUDENT NAME </th><th>ROOM NO</th></tr>");
+               
+                String sname , add ,nam ;
+                while(rs.next())
+                {
+                    sname = rs.getString(1);
+                    add = rs.getString(2);
+                    nam = rs.getString(3);
+                     out.println("<tr style=color:black>"
+                        +"<td>"+"<center>" + sname +"<center>"+"</td>"
+                        + "<td>" + "<center>" +add + "<center>" +"</td>"
+                        + "<td>" +"<center>" + nam + "<center>" +"</td>"
+                        + "</tr>");
+                }
+                out.println("</table>");
+                con.close();
+            }
+            catch(Exception e)
+            {
+                out.println(e);
+            }
             
             out.println("</body>");
             out.println("</html>");
