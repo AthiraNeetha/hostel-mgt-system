@@ -70,7 +70,7 @@ public class mainallocatejava extends HttpServlet {
                 ps1.setString(5,se);  
                 ps1.executeUpdate();
                 out.println("<script>alert('details inserted');</script>");
-                request.getRequestDispatcher("mainallocate.html").include(request, response);
+                request.getRequestDispatcher("generalroomdisplay").include(request, response);
                 
                 }
                else
