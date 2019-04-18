@@ -58,13 +58,7 @@ public class roomsuballocate extends HttpServlet {
                     year = rs.getString(3);
                     seater = rs.getString(4);
                     mess = rs.getString(5);
-                   
-                  /*out.println(appno);
-                  out.println(grad);
-                  out.println(year);
-                  out.println(seater);
-                  out.println(mess);*/
-                  
+                
                     PreparedStatement stmt1=con.prepareStatement("select * from vacant_room");
                     ResultSet rs1=stmt1.executeQuery();
                     String roomno , roomgrad , roomyear , roomseat ,roomvacant;
@@ -76,14 +70,11 @@ public class roomsuballocate extends HttpServlet {
                         roomseat = rs1.getString(4);
                         roomvacant = rs1.getString(5);
                         int roo = Integer.parseInt(roomvacant);
-                        /*out.println(roomno);
-                        out.println(roomgrad);
-                        out.println(roomyear);
-                        out.println(roomseat);
-                        out.println(roo);*/
+                     
                         if(grad.equals(roomgrad) && year.equals(roomyear) && seater.equals(roomseat))
                         {
                              int c= 0;
+                             int k =0;
                              PreparedStatement stmt4=con.prepareStatement("select * from stud_room");
                              ResultSet rs2=stmt4.executeQuery(); 
                              while(rs2.next())
@@ -110,12 +101,18 @@ public class roomsuballocate extends HttpServlet {
                            PreparedStatement stmt5=con.prepareStatement("delete from room_mess where appno=?");
                            stmt5.setString(1, appno);
                            stmt5.executeUpdate();
+                           k++;
                            }
-                         if(c > 1)
+                        else if(c > 1)
                         {
                              PreparedStatement stmt5=con.prepareStatement("delete from room_mess where appno=?");
                             stmt5.setString(1, appno);
                             stmt5.executeUpdate();
+                            k++;
+                        }
+                           if(k == 0)
+                        {
+                             out.println("<script type='text/javascript'>alert('ROOMS NOT AVAILABLE FOR ALL');</script>"); 
                         }
                        }
                     }
