@@ -65,6 +65,7 @@ body {
  <a href="comp.html" target="stud">Complaints</a>
  <a href="personal" target="stud">Personal</a>
  <a href="updateacc" target="stud">Update Account</a>
+ <a href="studentvacate" target="stud">Vacate</a>
 </div>
   <br><br><iframe name="stud" src="stud1.html" height="580" width="1550" frameborder="0"></iframe>   
 </body>
