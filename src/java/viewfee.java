@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author KHSCI5MCA16099
  */
-public class studstatus extends HttpServlet {
+public class viewfee extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,51 +37,44 @@ public class studstatus extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet studstatus</title>");            
+            out.println("<title>Servlet viewfee</title>");            
             out.println("</head>");
-           out.println("<body style='background-image: url(back.jpg); background-size: cover; background-repeat: no-repeat; background-position: top;'>");
-            
-         try
+            out.println("<body>");
+            out.println("<body style='background-image: url(picture5.jpg); background-size: cover; background-repeat: no-repeat; background-position: top;'>");
+          try
             {
-                 Class.forName("com.mysql.jdbc.Driver");
-                com.mysql.jdbc.Connection con = (com.mysql.jdbc.Connection) DriverManager.getConnection("jdbc:mysql://localhost/hostel","root", "");   
-                PreparedStatement ps = con.prepareStatement("select * from registerug2");
-                ResultSet rs = ps.executeQuery();
+                Class.forName("com.mysql.jdbc.Driver");
+                java.sql.Connection con=(java.sql.Connection) DriverManager.getConnection("jdbc:mysql://localhost/hostel","root","");
+                PreparedStatement stmt=con.prepareStatement("select * from fee_struct");
+                
+                ResultSet rs=stmt.executeQuery(); 
+                int i=0;
+                out.println("<center><br><h1 style=color:Navy blue>FEE STRUCTURE</h1></center>");
+                out.println("<center>");
+                out.println("<table border=1 width=50% height=50% align=center>"
+                    + "<tr><th>FEE CATEGORY </th><th>CHARGE</th></tr><br>");
                
-                out.println("<h1 align=center>Student List</h1>");
-               
-               
-                out.println("<form action='save' method='post'><table border=1 width=50% height=50% align=center>"
-                        + "<tr>"
-                        + "<th>Student ID </th>"
-                        + "<th>Student Name</th>"
-                        +"<th>Status</th>"
-                        + "</tr>");
-                    
+                String cat ;
+                int charge ; 
                 while(rs.next())
                 {
-                    out.println("<tr align=center>"
-                            + "<td> <input type=text value=\"" + rs.getString(1) + "\" name=ids></td>"
-                                    + "<td> <input type='text' value=\"" + rs.getString(2) +  "\" name='names'></td>"
-                                        +"<td width='20%'><select name='status'>"
-                                            + "<option>IN</option>"
-                                            + "<option>OUT</option>"+"</td>"
-                                            + "</tr>");
+                    cat = rs.getString(1);
+                    charge = rs.getInt(2);
                    
+                    out.println("<tr style=color:black>"
+                        +"<td>" +"<center>"+ cat+"</center>" +"</td>"
+                        + "<td>"+"<center>" + charge+"<center>"+ "</td>"
+                                   + "</tr>");
                 }
-                 
-                out.println("</table><br><br>");
-        }
-        catch(Exception e)
-        {
-           out.println(e);
-        }
-            
-           out.println("\n<center>");
-           out.print("<input type='submit' value='SAVE'>"); 
-           out.println("</form>");
-           out.println("</body>");
-           out.println("</html>");
+                out.println("</table>");
+                con.close();
+            }
+            catch(Exception e)
+            {
+                out.println(e);
+            }
+            out.println("</body>");
+            out.println("</html>");
         }
     }
 

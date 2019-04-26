@@ -204,6 +204,22 @@
         <servlet-name>vacatepermission</servlet-name>
         <servlet-class>vacatepermission</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>viewfee</servlet-name>
+        <servlet-class>viewfee</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>updatefee</servlet-name>
+        <servlet-class>updatefee</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>feeupdatejava</servlet-name>
+        <servlet-class>feeupdatejava</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>studfees</servlet-name>
+        <servlet-class>studfees</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>reg</servlet-name>
         <url-pattern>/reg</url-pattern>
@@ -407,6 +423,22 @@
     <servlet-mapping>
         <servlet-name>vacatepermission</servlet-name>
         <url-pattern>/vacatepermission</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>viewfee</servlet-name>
+        <url-pattern>/viewfee</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>updatefee</servlet-name>
+        <url-pattern>/updatefee</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>feeupdatejava</servlet-name>
+        <url-pattern>/feeupdatejava</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>studfees</servlet-name>
+        <url-pattern>/studfees</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

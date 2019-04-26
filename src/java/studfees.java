@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author KHSCI5MCA16099
  */
-public class studstatus extends HttpServlet {
+public class studfees extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,54 +34,54 @@ public class studstatus extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+            String seater = request.getParameter("t5");
+          
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet studstatus</title>");            
+            out.println("<title>Servlet studfees</title>");            
             out.println("</head>");
-           out.println("<body style='background-image: url(back.jpg); background-size: cover; background-repeat: no-repeat; background-position: top;'>");
-            
-         try
+            out.println("<body bgcolor=lavender>");
+            try
             {
-                 Class.forName("com.mysql.jdbc.Driver");
-                com.mysql.jdbc.Connection con = (com.mysql.jdbc.Connection) DriverManager.getConnection("jdbc:mysql://localhost/hostel","root", "");   
-                PreparedStatement ps = con.prepareStatement("select * from registerug2");
-                ResultSet rs = ps.executeQuery();
-               
-                out.println("<h1 align=center>Student List</h1>");
-               
-               
-                out.println("<form action='save' method='post'><table border=1 width=50% height=50% align=center>"
-                        + "<tr>"
-                        + "<th>Student ID </th>"
-                        + "<th>Student Name</th>"
-                        +"<th>Status</th>"
-                        + "</tr>");
-                    
+                Class.forName("com.mysql.jdbc.Driver");
+                java.sql.Connection con=(java.sql.Connection) DriverManager.getConnection("jdbc:mysql://localhost/hostel","root","");
+                PreparedStatement stmt=con.prepareStatement("select * from fee_struct where area = ?");
+                stmt.setString(1, seater);
+                String year1="" , year2="";
+                int fee=0 ,mess=0;
+                ResultSet rs=stmt.executeQuery();
                 while(rs.next())
                 {
-                    out.println("<tr align=center>"
-                            + "<td> <input type=text value=\"" + rs.getString(1) + "\" name=ids></td>"
-                                    + "<td> <input type='text' value=\"" + rs.getString(2) +  "\" name='names'></td>"
-                                        +"<td width='20%'><select name='status'>"
-                                            + "<option>IN</option>"
-                                            + "<option>OUT</option>"+"</td>"
-                                            + "</tr>");
-                   
+                    fee = rs.getInt(2);
+                    year1 = rs.getString(3);
+                    year2 = rs.getString(4);
                 }
-                 
-                out.println("</table><br><br>");
-        }
-        catch(Exception e)
-        {
-           out.println(e);
-        }
-            
-           out.println("\n<center>");
-           out.print("<input type='submit' value='SAVE'>"); 
-           out.println("</form>");
-           out.println("</body>");
-           out.println("</html>");
+                 PreparedStatement stmt1=con.prepareStatement("select fee from fee_struct where area = ?");
+                stmt1.setString(1, "Mess Charge");
+              
+                ResultSet rs1=stmt1.executeQuery();
+                while(rs1.next())
+                {
+                    mess = rs1.getInt(1);
+                }
+                out.println("<center style=font-size:20px>");
+                out.println("<br><br>HOSTEL FEE STRUCTURE FOR ACADEMIC YEAR " + year1 +" - " +year2);
+                out.println("<br><br><br>"+seater+" :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ");
+                    out.println(fee);
+                    out.println("<br><br>Mess Charge: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ");
+                    out.println(mess);
+                    int sum = fee + mess;
+                    out.println("<br><br>------------------------------------------------------");
+                    out.println("<br><br>total :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "+sum);
+                    out.println("</center>");
+            }catch(Exception e)
+            {
+                out.println(e);
+            }
+              out.println("</center>");
+            out.println("</body>");
+            out.println("</html>");
         }
     }
 

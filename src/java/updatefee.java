@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author KHSCI5MCA16099
  */
-public class studstatus extends HttpServlet {
+public class updatefee extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,35 +37,33 @@ public class studstatus extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet studstatus</title>");            
+            out.println("<title>Servlet updatefee</title>");            
             out.println("</head>");
-           out.println("<body style='background-image: url(back.jpg); background-size: cover; background-repeat: no-repeat; background-position: top;'>");
-            
-         try
+             try
             {
                  Class.forName("com.mysql.jdbc.Driver");
                 com.mysql.jdbc.Connection con = (com.mysql.jdbc.Connection) DriverManager.getConnection("jdbc:mysql://localhost/hostel","root", "");   
-                PreparedStatement ps = con.prepareStatement("select * from registerug2");
+                PreparedStatement ps = con.prepareStatement("select * from fee_struct");
                 ResultSet rs = ps.executeQuery();
                
-                out.println("<h1 align=center>Student List</h1>");
-               
-               
-                out.println("<form action='save' method='post'><table border=1 width=50% height=50% align=center>"
+                out.println("<h1 align=center style=color:#007acc>UPDATE FEE</h1>");
+                out.println("<form action='feeupdatejava' method='post'>");
+                out.println("<center>");
+                out.println("<br>ENTER YEAR :<br><br>");
+                out.print("From : <input type='Number' min='2018' max='2021' minlength='4' maxlength='4' name='y1'>");
+                out.print("&nbsp;&nbsp;To : <input type='Number' min='2019' max='2022' minlength='4' maxlength='4'  name='y2'> <br><br><BR>");
+                out.println("<table border=1 width=50% height=50% align=center>"
                         + "<tr>"
-                        + "<th>Student ID </th>"
-                        + "<th>Student Name</th>"
-                        +"<th>Status</th>"
+                        + "<th>FEE CATEGORY </th>"
+                        +"<th>AMOUNT</th>"
                         + "</tr>");
-                    
+          
                 while(rs.next())
                 {
                     out.println("<tr align=center>"
-                            + "<td> <input type=text value=\"" + rs.getString(1) + "\" name=ids></td>"
-                                    + "<td> <input type='text' value=\"" + rs.getString(2) +  "\" name='names'></td>"
-                                        +"<td width='20%'><select name='status'>"
-                                            + "<option>IN</option>"
-                                            + "<option>OUT</option>"+"</td>"
+                            + "<td> <input type='text' minlength='4' maxlength='6' onkeypress=\"return isNumberKey(event)\" value=\"" + rs.getString(1) +  "\" name='depts'></td>"
+                                    + "<td> <input type='text' minlength='4' maxlength='6' onkeypress=\"return isNumberKey(event)\" value=\"" + rs.getString(2) +  "\" name='names'></td>"
+                                       
                                             + "</tr>");
                    
                 }
@@ -77,8 +75,10 @@ public class studstatus extends HttpServlet {
            out.println(e);
         }
             
-           out.println("\n<center>");
-           out.print("<input type='submit' value='SAVE'>"); 
+         
+           out.print("<input type='submit' value='UPDATE FEE'>"); 
+           out.print("&nbsp;&nbsp;&nbsp;&nbsp;<input type='reset' value='CANCEL'>");
+           out.println("</center>");
            out.println("</form>");
            out.println("</body>");
            out.println("</html>");
