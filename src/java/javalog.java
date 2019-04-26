@@ -116,7 +116,9 @@ public class javalog extends HttpServlet {
                     }
                     if( x == 0)
                     {
-                        out.println("<script type='text/javascript'>alert(Invalid user..);window.location('login.html');</script>");   
+                        out.println("<script type='text/javascript'>alert(Invalid user..);window.location('login.html');</script>"); 
+                        request.getRequestDispatcher("login.html").include(request, response);
+                        
                     }
                     if (x == 1)
                     {
@@ -152,7 +154,8 @@ public class javalog extends HttpServlet {
                     }
                     if( x == 0)
                     {
-                        out.println("<script type='text/javascript'>alert('Invalid user');window.location('login.html');</script>");   
+                        out.println("<script type='text/javascript'>alert('Invalid user');window.location('login.html');</script>"); 
+                        request.getRequestDispatcher("login.html").include(request, response);
                     }
                     if (x == 1)
                     {

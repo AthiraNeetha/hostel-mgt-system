@@ -54,9 +54,11 @@ public class personal extends HttpServlet {
                 {
                     out.println("<BR><BR><BR><br><br><U><B>PERSONAL DETAILS</B></U>");
                     out.println("<br><br><br>&nbsp;&nbsp;&nbsp;NAME :  ");
+                   // out.println(rs.getString(2));
                     out.println("<input type=text value=\"" + rs.getString(2) + "\">");
                     
                     out.println("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DOB : ");
+                   // out.println(rs.getString(2));
                     out.println("<input type=text value=\"" + rs.getString(3) + "\">");
                     
                     out.println("<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ph NO : ");

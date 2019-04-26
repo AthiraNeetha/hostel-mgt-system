@@ -43,10 +43,10 @@ and open the template in the editor.
                 <fieldset style="width: 400px;height :340px;border-color:white"><br>
                  <h3>Change Password</h3>
                  Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                 <input type="text" name="t1" size="20"> <br><br>
-                 Current Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="t2" size="20"><br><br>
-                 New Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="t3" size="20"><br><br>
-                 Confirm Password:&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="t4" size="20"><br><br><br>
+                 <input type="text" name="t1" maxlength="20" size="20"> <br><br>
+                 Current Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="t2"  maxlength="10" size="20"><br><br>
+                 New Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="t3" minlength="8" maxlength="10" size="20"><br><br>
+                 Confirm Password:&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="t4" minlength="8" maxlength="10" size="20"><br><br><br>
                  <input type="submit" value="Change Password" onClick="return validateMe(this.form);">
                 </fieldset>
             </center>

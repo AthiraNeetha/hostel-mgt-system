@@ -57,15 +57,15 @@ body {
        <h3 style="font-family:Lucida Calligraphy"> ${"Welcome"}
        ${NAME}</h3>
    </center>
-  <a href="Home.html">Logout</a>
-  <a href="pass.html">Password</a>
-  <a class="active" href="stud1.html" target="four">Home</a>
+  <a href="index.html" target="_top">Logout</a>
+  <a href="passchange.html" target="stud">Password</a>
+  <a class="active" href="stud1.html" target="stud">Home</a>
 </div>
 <div class="topnav1">
  <a href="comp.html" target="stud">Complaints</a>
  <a href="personal" target="stud">Personal</a>
  <a href="updateacc" target="stud">Update Account</a>
- <a href="studentvacate" target="stud">Vacate</a>
+ 
 </div>
   <br><br><iframe name="stud" src="stud1.html" height="580" width="1550" frameborder="0"></iframe>   
 </body>

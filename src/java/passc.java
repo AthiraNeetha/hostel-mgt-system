@@ -52,13 +52,13 @@ public class passc extends HttpServlet {
                     Class.forName("com.mysql.jdbc.Driver");  
 
                     Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/hostel","root",""); 
-                    PreparedStatement stmt=con.prepareStatement("select * from stud_login");  
+                    PreparedStatement stmt=con.prepareStatement("select * from registerug2");  
                     ResultSet rs=stmt.executeQuery();
                     int x=0 ;
                     while(rs.next())
                     {
                          String username = rs.getString(1);
-                         String userpass= rs.getString(2);
+                         String userpass= rs.getString(9);
                          if(username.equals(name) && userpass.equals(cur))
                         {
                             x++;
@@ -67,7 +67,7 @@ public class passc extends HttpServlet {
                     
                     if(x == 1)
                     {
-                         PreparedStatement stmt1=con.prepareStatement("update stud_login set password =? where name=? and password=?");
+                         PreparedStatement stmt1=con.prepareStatement("update registerug2 set password =? where name=? and password=?");
                          stmt1.setString(1,newpass);
                          stmt1.setString(2,name);
                          stmt1.setString(3, cur);

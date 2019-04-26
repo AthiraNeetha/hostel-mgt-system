@@ -56,17 +56,19 @@ public class updateacc extends HttpServlet {
                  
                 while(rs.next())
                 {
-                    out.println("<br><br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;APPLICATION ID : ");
+                    out.println("<br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;APPLICATION ID : ");
                     out.println(rs.getString(1));
                    
                     out.println("<br><br>NAME : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ");
                     out.println(rs.getString(2));
                     
-                    out.println("<br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CONTACT NO : ");
-                    out.println("<input type=text name=t1 value=\"" + rs.getString(6) + "\">");
-                    
+                    out.println("<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CONTACT NO : ");
+                    out.print("<input type=text name=t1 value=\"" + rs.getString(6) + "\">");
+                    out.print("&nbsp;&nbsp;*");
                     out.println("<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EMAIL :  ");
-                    out.println("<input type=text size=30 name=t2 value=\"" + rs.getString(7) + "\">");
+                    out.print("<input type=text size=30 name=t2 value=\"" + rs.getString(7) + "\">");
+                    out.print("&nbsp;&nbsp;*");
+                   
                              
                 }
                 
@@ -75,6 +77,7 @@ public class updateacc extends HttpServlet {
                 out.println(e);
             }
             out.println("<br><br><input type='submit' value='SAVE'>");
+             out.println("<br><br><br><p style=color:red;>* &nbsp;:&nbsp; Fields to update if required</p>");
             out.println("</fieldset>");
             out.println("</center>");
             out.println("</form>");

@@ -51,13 +51,11 @@ public class vacatepermission extends HttpServlet {
             {
                 Class.forName("com.mysql.jdbc.Driver");
                 com.mysql.jdbc.Connection con=(com.mysql.jdbc.Connection) DriverManager.getConnection("jdbc:mysql://localhost/hostel","root","");  
-                
-               
-                   PreparedStatement ps1=con.prepareStatement("select * from registerug2");
-                   ResultSet rs=ps1.executeQuery(); 
-                 int c=0;
-                 while(rs.next())
-                 {
+                PreparedStatement ps1=con.prepareStatement("select * from stud_room");
+                ResultSet rs=ps1.executeQuery(); 
+                int c=0;
+                while(rs.next())
+                {
                      String id= rs.getString(1);
                      if(id.equals(app))
                      {
@@ -67,7 +65,26 @@ public class vacatepermission extends HttpServlet {
                 
                 if(c ==1)
                 {
-                     java.util.Date date=new java.util.Date();
+                    PreparedStatement ps8=con.prepareStatement("select * from vacate_details");
+                    ResultSet rs8=ps8.executeQuery(); 
+                   int c1 = 0;
+                    while(rs8.next())
+                    {
+                        String id= rs8.getString(1);
+                        if(id.equals(app))
+                        {
+                           c1++;
+                          
+                        }
+                    } 
+                    if(c1 > 0 )
+                    {
+                         out.println("<script>alert('Already vacated...');</script>");
+                         request.getRequestDispatcher("studentvacate.html").include(request, response);
+                    }
+                    if(c1 == 0)
+                    {
+                    java.util.Date date=new java.util.Date();
                     java.sql.Date sqlDate=new java.sql.Date(date.getTime());
                     PreparedStatement ps2=con.prepareStatement("select year from registerug2 where appno =? ");
                     ps2.setString(1,app);
@@ -84,22 +101,58 @@ public class vacatepermission extends HttpServlet {
                    while(rs2.next())
                    {
                     newyear = rs2.getString(1);
-                    }   
-                   
-                  
-                   
-                   PreparedStatement stmt1=con.prepareStatement("insert into vacate_details values(?,?,?,?)");
+                   }   
+                    PreparedStatement stmt1=con.prepareStatement("insert into vacate_details values(?,?,?,?)");
                     stmt1.setString(1,app);
                     stmt1.setDate(2, sqlDate);
                     stmt1.setString(3,oldyear);
                     stmt1.setString(4,newyear);
                     stmt1.executeUpdate();
-                    PreparedStatement stmt2=con.prepareStatement("delete from registerug2 where appno =?");
+                    PreparedStatement ps4=con.prepareStatement("select rno from stud_room where appno =? ");
+                    ps4.setString(1,app);
+                    ResultSet rs4=ps4.executeQuery();
+                    String room = "";
+                    while(rs4.next())
+                    {
+                        room = rs4.getString(1);
+                    }
+                    PreparedStatement ps6=con.prepareStatement("select vacancy from vacant_room where rno =?");
+                    ps6.setString(1,room);
+                    ResultSet rs6=ps6.executeQuery();
+                    String vac = "";
+                    while(rs6.next())
+                    {
+                        vac = rs6.getString(1);
+                    }
+                    PreparedStatement ps5=con.prepareStatement("update vacant_room set vacancy =? where rno =?");
+                    int vac1 = Integer.parseInt(vac);
+                    vac1 = vac1 + 1;
+                    String str = Integer.toString(vac1);
+                    ps5.setString(1,str);
+                    ps5.setString(2,room);
+                    ps5.executeUpdate();
+                    PreparedStatement stmt2=con.prepareStatement("delete from complaint where appno =?");
                     stmt2.setString(1,app);
                     stmt2.executeUpdate();
+                    PreparedStatement stmt3=con.prepareStatement("delete from parent where appno =?");
+                    stmt3.setString(1,app);
+                    stmt3.executeUpdate();
+                    PreparedStatement stmt4=con.prepareStatement("delete from stud_room where appno =?");
+                    stmt4.setString(1,app);
+                    stmt4.executeUpdate();
+                    PreparedStatement stmt5=con.prepareStatement("delete from visitor where appno =?");
+                    stmt5.setString(1,app);
+                    stmt5.executeUpdate();
+                   
                     
-                    out.println("<script>alert('records updated');</script>");
-                    request.getRequestDispatcher("visitordetails.html").include(request, response);
+                  out.println("<script>alert('records updated');</script>");
+                  request.getRequestDispatcher("studentvacate.html").include(request, response);
+                    }  
+                }
+                if(c==0)
+                {
+                    out.println("<script>alert('No such student exist...');</script>");
+                    request.getRequestDispatcher("studentvacate.html").include(request, response);
                 }
             }catch(Exception e)
             {
