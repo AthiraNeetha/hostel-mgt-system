@@ -51,7 +51,7 @@ public class studview extends HttpServlet {
                 out.println("<center><h1 style=color:Navy blue>STUDENT DETAILS</h1></center>");
                 out.println("<center>");
                 out.println("<table border=1 width=100% height=50% align=center>"
-                    + "<tr><th>Application No </th><th>Stud Name</th><th>DOB</th><th>Graduation Type</th>"
+                    + "<tr><th>Student ID </th><th>Stud Name</th><th>DOB</th><th>Graduation Type</th>"
                         + "<th>Address</th><th>Contact</th><th>Email</th><th>Status</th></tr>");
              
                 String sid,name ,grad,dob, addr , phno,email,status;
@@ -67,14 +67,14 @@ public class studview extends HttpServlet {
                    status = rs.getString(8);
                     
                     out.println("<tr style=color:crimson red>"
-                        +"<td>" + sid +"</td>"
-                        + "<td>" + name + "</td>"
-                        + "<td>" + dob + "</td>"
-                        + "<td>" + grad + "</td>"
-                        + "<td>" + addr + "</td>" 
-                        + "<td>" + phno + "</td>"
-                        + "<td>" + email + "</td>"
-                        + "<td>" + status + "</td>"
+                        +"<td>" +"<center>"+ sid +"</center>"+"</td>"
+                        + "<td>" +"<center>"+ name +"</center>" +"</td>"
+                        + "<td>" +"<center>"+ dob +"</center>" +"</td>"
+                        + "<td>" +"<center>"+ grad + "</center>"+"</td>"
+                        + "<td>" +"<center>"+ addr + "</center>"+"</td>" 
+                        + "<td>" +"<center>"+ phno +"</center>" +"</td>"
+                        + "<td>" +"<center>"+ email + "</center>"+"</td>"
+                        + "<td>" +"<center>"+status +"</center>"+ "</td>"
                                 + "</tr>");
                 }
                 out.println("</table>");

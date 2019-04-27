@@ -72,10 +72,10 @@ public class personal extends HttpServlet {
                     
                     out.println("<br><br><br><u><b>ACADEMIC DETAILS</b></u>");
                     
-                    out.println("<br><br><br>APPLICATION ID : ");
-                    out.println("<input type=text size=10 value=\"" + rs.getString(1) + "\">");
+                    out.println("<br><br><br>STUDENT ID : ");
+                    out.println("<input type=text size=18 value=\"" + rs.getString(1) + "\">");
                     
-                    out.println("GRADUATION TYPE :  ");
+                    out.println("GRADUATION :  ");
                     out.println("<input type=text size=5 value=\"" + rs.getString(4) + "\">");
                     
                     out.println("<br><br>COURSE ENROLLED :  ");

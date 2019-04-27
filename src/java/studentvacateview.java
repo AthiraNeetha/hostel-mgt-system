@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author KHSCI5MCA16099
  */
-public class parentpersonal extends HttpServlet {
+public class studentvacateview extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,47 +37,45 @@ public class parentpersonal extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet parentpersonal</title>");            
+            out.println("<title>Servlet studentvacateview</title>");            
             out.println("</head>");
-            out.println("<body style='background-image: url(border.jpg);  background-repeat: no-repeat; background-position: top;'>");
-             try
+           out.println("<body style='background-image: url(picture5.jpg); background-size: cover; background-repeat: no-repeat; background-position: top;'>");
+          try
             {
                 Class.forName("com.mysql.jdbc.Driver");
                 java.sql.Connection con=(java.sql.Connection) DriverManager.getConnection("jdbc:mysql://localhost/hostel","root","");
-                PreparedStatement stmt=con.prepareStatement("select * from parent where pname=? and password=?");
-                stmt.setString(1, MyGlobals.ParentName);
-                stmt.setString(2,MyGlobals.Gpassword );
+                PreparedStatement stmt=con.prepareStatement("select * from vacate_details");
+                
                 ResultSet rs=stmt.executeQuery(); 
                 int i=0;
+                out.println("<center><h1 style=color:Navy blue>VACATED STUDENT DETAILS</h1></center>");
                 out.println("<center>");
+                out.println("<table border=1 width=80% height=50% align=center>"
+                    + "<tr><th>APP NO </th><th>VACATED DATE</th><th>JOIN YEAR</th><th>VACATED YEAR</th></tr>");
                
+                String room , grad , year , total ;
                 while(rs.next())
                 {
-                    out.println("<br><br><br><br><br><br><br>STUDENT ID :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ");
-                    out.println(rs.getString(1));
-                    out.println("<br><br><br><u><b>PARENT DETAILS</b></u>");
-                    out.println("<br><br><br>NAME : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ");
-                    out.println(rs.getString(3));
-                    out.println("<br><br>ADDRESS : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ");
-                    out.println(rs.getString(4));
-                    out.println("<br><br>CONTACT NO : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ");
-                    out.println(rs.getString(5));
-                    out.println("<br><br>EMAIL : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ");
-                    out.println(rs.getString(6));
-                    out.println("<br><br><br><u><b>LOCAL GUARDIAN DETAILS</b></u>");
-                    out.println("<br><br><br>NAME : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ");
-                    out.println(rs.getString(7));
-                    out.println("<br><br>ADDRESS : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ");
-                    out.println(rs.getString(8));
-                    out.println("<br><br>CONTACT NO : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ");
-                    out.println(rs.getString(9));
+                    room = rs.getString(1);
+                    grad = rs.getString(2);
+                    year = rs.getString(3);
+                    total = rs.getString(4);
+                    
+                    out.println("<tr style=color:black>"
+                        +"<td>"+"<center>" + room +"</center>"+"</td>"
+                        + "<td>"+"<center>" + grad +"</center>"+ "</td>"
+                        + "<td>"+"<center>" + year+ "</center>"+"</td>"
+                        + "<td>"+"<center>" + total+ "</center>"+"</td>"
+                        
+                                + "</tr>");
                 }
-                
-            }catch(Exception e)
+                out.println("</table>");
+                con.close();
+            }
+            catch(Exception e)
             {
                 out.println(e);
             }
-              out.println("</center>");
             out.println("</body>");
             out.println("</html>");
         }

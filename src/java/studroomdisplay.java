@@ -51,7 +51,7 @@ public class studroomdisplay extends HttpServlet {
                 out.println("<center><h1 style=color:Navy blue>STUDENT ROOM ALLOCATION DETAILS</h1></center>");
                 out.println("<center>");
                 out.println("<table border=1 width=50% height=50% align=center>"
-                    + "<tr><th>STUDENT NO </th><th> STUDENT NAME </th><th>ROOM NO</th></tr>");
+                    + "<tr><th>STUDENT ID </th><th> STUDENT NAME </th><th>ROOM NO</th><th>STATUS</th></tr>");
                
                 String sname , add ,nam ;
                 while(rs.next())
@@ -63,6 +63,7 @@ public class studroomdisplay extends HttpServlet {
                         +"<td>"+"<center>" + sname +"<center>"+"</td>"
                         + "<td>" + "<center>" +add + "<center>" +"</td>"
                         + "<td>" +"<center>" + nam + "<center>" +"</td>"
+                        + "<td>" +"<center>" + "Room Alloted..." + "<center>" +"</td>"
                         + "</tr>");
                 }
                 out.println("</table>");

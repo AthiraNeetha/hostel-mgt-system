@@ -52,13 +52,13 @@ public class staffdetails extends HttpServlet {
                 out.println("<center>");
                 out.println("<table border=1 width=80% height=50% align=center>"
                     + "<tr><th>Staff ID </th><th>Staff Name</th><th>Mobile No</th><th>Email ID</th><th>Place</th><th>Password</th></tr>");
-                int sno ;
+                String sno ;
                 String sid , sname , smail , splace , spass;
                 while(rs.next())
                 {
                     sid = rs.getString(1);
                     sname = rs.getString(2);
-                    sno= rs.getInt(3);
+                    sno= rs.getString(3);
                     smail = rs.getString(4);
                     splace = rs.getString(5);
                     spass = rs.getString(6);

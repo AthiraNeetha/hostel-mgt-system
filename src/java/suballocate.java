@@ -54,7 +54,7 @@ public class suballocate extends HttpServlet {
                 out.println("<center><h1 style=color:Navy blue>REGISTRATION FOR ROOM ALLOCATION</h1></center>");
                 out.println("<center>");
                 out.println("<table border=1 width=80% height=50% align=center>"
-                    + "<tr><th>APP NO </th><th>GRADUATION</th><th>YEAR</th><th>SEATER</th><th>FOOD TYPE</th></tr>");
+                    + "<tr><th>APP NO </th><th>GRADUATION</th><th>YEAR</th><th>SEATER</th><th>FOOD TYPE</th><th>STATUS</th></tr>");
                
                 String appno ,grad,year, seater , mess;
                 while(rs.next())
@@ -72,6 +72,7 @@ public class suballocate extends HttpServlet {
                         + "<td>" + year+ "</td>"
                         +"<td>" + seater +"</td>"
                         + "<td>" + mess + "</td>"
+                        + "<td>" +"Pending..."+"</td>"
                         + "</tr>");
                 }
                 out.println("</table>");

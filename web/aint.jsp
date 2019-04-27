@@ -66,6 +66,7 @@ body {
  <a href="personal" target="stud">Personal</a>
  <a href="updateacc" target="stud">Update Account</a>
  <a href="studfeesht.html" target="stud">View Fees</a>
+ <a href="studroomstatus" target="stud">View Room Status</a>
 </div>
   <br><br><iframe name="stud" src="stud1.html" height="580" width="1550" frameborder="0"></iframe>   
 </body>

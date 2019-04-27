@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 
-import com.mysql.jdbc.Connection;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.DriverManager;
@@ -46,12 +45,12 @@ public class staffadd extends HttpServlet {
             out.println("<head>");
             out.println("<title>Servlet staffadd</title>");            
             out.println("</head>");
-            out.println("<body>");
-           out.println("<body style='background-image: url(imaging.jpeg); background-size: cover; background-repeat: no-repeat; background-position: top;'>");
+             out.println("<body style='background-image: url(imaging.jpeg); background-size: cover; background-repeat: no-repeat; background-position: top;'>");
             try
             {
+                
                 Class.forName("com.mysql.jdbc.Driver");
-                Connection con=(Connection) DriverManager.getConnection("jdbc:mysql://localhost/hostel","root","");  
+                com.mysql.jdbc.Connection con=(com.mysql.jdbc.Connection) DriverManager.getConnection("jdbc:mysql://localhost/hostel","root","");  
                 PreparedStatement stmt=con.prepareStatement("select * from staff");
                 ResultSet rs=stmt.executeQuery(); 
                 int c=0;
@@ -74,10 +73,11 @@ public class staffadd extends HttpServlet {
                 ps1.setString(6,spass);
                 ps1.executeUpdate();
                 out.println("<script>alert('staff details added');</script>");
-                request.getRequestDispatcher("addstaff.html").include(request, response);
+                request.getRequestDispatcher("staffdetails").include(request, response);
+                
                 
                 }
-               else
+              if(c==1)
                 {
                    out.println("<script>alert('staff already exist ..Try another');</script>");
                    request.getRequestDispatcher("addstaff.html").include(request, response);
@@ -90,6 +90,7 @@ public class staffadd extends HttpServlet {
             {
                 out.println(e);
             }
+            
             
             out.println("</body>");
             out.println("</html>");

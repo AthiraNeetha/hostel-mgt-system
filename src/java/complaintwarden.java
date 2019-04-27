@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -35,7 +36,7 @@ public class complaintwarden extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             
             String com = request.getParameter("tt1");
-            String roomno = request.getParameter("room");
+           // String roomno = request.getParameter("room");
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
@@ -46,7 +47,14 @@ public class complaintwarden extends HttpServlet {
             {
                 Class.forName("com.mysql.jdbc.Driver");
                 com.mysql.jdbc.Connection con=(com.mysql.jdbc.Connection) DriverManager.getConnection("jdbc:mysql://localhost/hostel","root","");  
-               
+                     PreparedStatement stmt=con.prepareStatement("select rno from stud_room where appno=?");
+                     stmt.setString(1,MyGlobals.Gname);
+                     ResultSet rs=stmt.executeQuery(); 
+                     String roomno= "";
+                     while(rs.next())
+                     {
+                         roomno = rs.getString(1);
+                     }
                     java.util.Date date=new java.util.Date();
                     java.sql.Date sqlDate=new java.sql.Date(date.getTime());
                     java.sql.Timestamp sqlTime=new java.sql.Timestamp(date.getTime());

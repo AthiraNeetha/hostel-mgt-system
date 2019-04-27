@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author KHSCI5MCA16099
  */
-public class parentpersonal extends HttpServlet {
+public class studroomstatus extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,47 +37,47 @@ public class parentpersonal extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet parentpersonal</title>");            
+            out.println("<title>Servlet studroomstatus</title>");            
             out.println("</head>");
-            out.println("<body style='background-image: url(border.jpg);  background-repeat: no-repeat; background-position: top;'>");
+            out.println("<body bgcolor=lavender>");
              try
             {
                 Class.forName("com.mysql.jdbc.Driver");
                 java.sql.Connection con=(java.sql.Connection) DriverManager.getConnection("jdbc:mysql://localhost/hostel","root","");
-                PreparedStatement stmt=con.prepareStatement("select * from parent where pname=? and password=?");
-                stmt.setString(1, MyGlobals.ParentName);
-                stmt.setString(2,MyGlobals.Gpassword );
-                ResultSet rs=stmt.executeQuery(); 
-                int i=0;
-                out.println("<center>");
                
+                PreparedStatement stmt=con.prepareStatement("select * from stud_room where appno=?");
+                stmt.setString(1, MyGlobals.Gname);
+                ResultSet rs=stmt.executeQuery();
+                String appno ="" ,room="";
+                int count = 0;
                 while(rs.next())
                 {
-                    out.println("<br><br><br><br><br><br><br>STUDENT ID :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ");
-                    out.println(rs.getString(1));
-                    out.println("<br><br><br><u><b>PARENT DETAILS</b></u>");
-                    out.println("<br><br><br>NAME : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ");
-                    out.println(rs.getString(3));
-                    out.println("<br><br>ADDRESS : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ");
-                    out.println(rs.getString(4));
-                    out.println("<br><br>CONTACT NO : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ");
-                    out.println(rs.getString(5));
-                    out.println("<br><br>EMAIL : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ");
-                    out.println(rs.getString(6));
-                    out.println("<br><br><br><u><b>LOCAL GUARDIAN DETAILS</b></u>");
-                    out.println("<br><br><br>NAME : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ");
-                    out.println(rs.getString(7));
-                    out.println("<br><br>ADDRESS : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ");
-                    out.println(rs.getString(8));
-                    out.println("<br><br>CONTACT NO : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ");
-                    out.println(rs.getString(9));
+                    appno  = rs.getString(1);
+                    room = rs.getString(2);
+                        
                 }
-                
+               
+                if(appno.equals(MyGlobals.Gname))
+              {
+                   out.println("<center style=font-size:25px;>");
+                   out.println("<br><br><br><br>STATUS : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+                   out.println("Room Alloted");
+                   out.println("<br><br>ROOM NO :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+                   out.println(room);
+                   out.println("</center>");
+             }
+                if(appno.equals(""))
+                {
+                   out.println("<center style=font-size:25px>");
+                   out.println("<br><br><br><br>STATUS : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+                   out.println("Pending.....");
+                   out.println("</center>");
+                }
+               
             }catch(Exception e)
             {
-                out.println(e);
+                
             }
-              out.println("</center>");
             out.println("</body>");
             out.println("</html>");
         }

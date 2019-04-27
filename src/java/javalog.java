@@ -122,7 +122,7 @@ public class javalog extends HttpServlet {
                     }
                     if (x == 1)
                     {
-                        request.getRequestDispatcher("secret.html").forward(request, response);
+                        request.getRequestDispatcher("adminhtml.html").forward(request, response);
                     }
                 }catch(Exception e)
                 {

@@ -63,10 +63,10 @@ public class onemonthvisitor extends HttpServlet {
                     time= rs.getString(5);
                     
                     out.println("<tr style=color:#e60000>"
-                        +"<td>" + app +"</td>"
-                        +"<td>" + sname +"</td>"
-                        + "<td>" + add + "</td>"
-                        + "<td>" + date+ "</td>"
+                        +"<td>" +"<center>"+ app +"</center>"+"</td>"
+                        +"<td>" +"<center>"+ sname +"</center>"+"</td>"
+                        + "<td>"+"<center>" + add + "</center>"+"</td>"
+                        + "<td>" +"<center>"+ date+"</center>"+ "</td>"
                         + "<td>" + time+ "</td>"
                                 + "</tr>");
                 }
