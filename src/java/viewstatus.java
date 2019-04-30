@@ -67,6 +67,8 @@ public class viewstatus extends HttpServlet {
                                 + "</tr>");
                 }
                 out.println("</table>");
+                
+                out.println("<br><a href='countjava'>Get Count</a>");
                 con.close();
             }
             catch(Exception e)

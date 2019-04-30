@@ -102,7 +102,7 @@ public class vacatepermission extends HttpServlet {
                    {
                     newyear = rs2.getString(1);
                    }   
-                    PreparedStatement stmt1=con.prepareStatement("insert into vacate_details values(?,?,?,?)");
+                    PreparedStatement stmt1=con.prepareStatement("insert into vacate1_details values(?,?,?,?)");
                     stmt1.setString(1,app);
                     stmt1.setDate(2, sqlDate);
                     stmt1.setString(3,oldyear);
@@ -143,7 +143,9 @@ public class vacatepermission extends HttpServlet {
                     PreparedStatement stmt5=con.prepareStatement("delete from visitor where appno =?");
                     stmt5.setString(1,app);
                     stmt5.executeUpdate();
-                   
+                   PreparedStatement stmt6=con.prepareStatement("delete from registerug2 where appno =?");
+                    stmt6.setString(1,app);
+                    stmt6.executeUpdate();
                     
                   out.println("<script>alert('records updated');</script>");
                   request.getRequestDispatcher("studentvacate.html").include(request, response);

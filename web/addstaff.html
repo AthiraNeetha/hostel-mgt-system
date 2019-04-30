@@ -80,11 +80,11 @@ and open the template in the editor.
         <br> <h2>STAFF REGISTRATION</h2>
         <div class="container" >
             <div class="content">
-            <input type="text" name="t1" placeholder="Staff ID" minlength='6' maxlength='6' size="35" style="height:25px;"><br><br>
+            <input type="text" name="t1" placeholder="Staff ID" minlength='4' maxlength='4' size="35" style="height:25px;" onkeypress="return isNumberKey1(event)"><br><br>
             <input type="text" name="t2" placeholder="Staff Name" size="35" maxlength='25' style="height:25px;" onkeypress="return isNumberKey(event)"><br><br>
             <input type="text" name="t3" placeholder="Mobile No" minlength='10' maxlength='12' size="35" style="height:25px;" onkeypress="return isNumberKey1(event)"><br><br>
             <input type="email" name="t4" placeholder="Email" maxlength='20' size="35" style="height:25px;"><br><br>
-            <input type="text" name="t5" placeholder="Place" maxlength='20' size="35" style="height:25px;"><br><br>
+            <input type="text" name="t5" placeholder="Address" maxlength='20' size="35" style="height:25px;"><br><br>
             <input type="password" name="t6" placeholder="Password" minlength='8' maxlength='10' size="35" style="height:25px;"><br><br><br>
             <input type="submit" value="SUBMIT" style="width:70px;height:30px" onClick="return validateMe(this.form);" formaction="staffaddjava">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" value="CANCEL" style="height:30px">

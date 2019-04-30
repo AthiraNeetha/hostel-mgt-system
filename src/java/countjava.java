@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author KHSCI5MCA16099
  */
-public class studentvacateview extends HttpServlet {
+public class countjava extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,42 +37,27 @@ public class studentvacateview extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet studentvacateview</title>");            
+            out.println("<title>Servlet countjava</title>");            
             out.println("</head>");
-           out.println("<body style='background-image: url(picture5.jpg); background-size: cover; background-repeat: no-repeat; background-position: top;'>");
-          try
+            out.println("<body>");
+             try
             {
                 Class.forName("com.mysql.jdbc.Driver");
-                java.sql.Connection con=(java.sql.Connection) DriverManager.getConnection("jdbc:mysql://localhost/hostel","root","");
-                PreparedStatement stmt=con.prepareStatement("select * from vacate1_details");
-                
-                ResultSet rs=stmt.executeQuery(); 
-                int i=0;
-                out.println("<center><h1 style=color:Navy blue>VACATED STUDENT DETAILS</h1></center>");
-                out.println("<center>");
-                out.println("<table border=1 width=80% height=50% align=center>"
-                    + "<tr><th>APP NO </th><th>VACATED DATE</th><th>JOIN YEAR</th><th>VACATED YEAR</th></tr>");
-               
-                String room , grad , year , total ;
+                com.mysql.jdbc.Connection con=(com.mysql.jdbc.Connection) DriverManager.getConnection("jdbc:mysql://localhost/hostel","root","");  
+                PreparedStatement ps1=con.prepareStatement("select count(*) from registerug2 where status=?");
+                ps1.setString(1,"IN");
+                ResultSet rs=ps1.executeQuery(); 
+                int num = 0;
                 while(rs.next())
                 {
-                    room = rs.getString(1);
-                    grad = rs.getString(2);
-                    year = rs.getString(3);
-                    total = rs.getString(4);
+                    num = rs.getInt(1);
                     
-                    out.println("<tr style=color:black>"
-                        +"<td>"+"<center>" + room +"</center>"+"</td>"
-                        + "<td>"+"<center>" + grad +"</center>"+ "</td>"
-                        + "<td>"+"<center>" + year+ "</center>"+"</td>"
-                        + "<td>"+"<center>" + total+ "</center>"+"</td>"
-                        
-                                + "</tr>");
                 }
-                out.println("</table>");
-                con.close();
+               out.println("<h2><center><br><br><br>THE TOTAL STUDENT INSIDE HOSTEL IS :  " +num  +"</center></h2>");
+               //out.println("<script type='text/javascript'>(\"alert \\'you have got\"+num+\" messages\\'\");window.location.assign('viewstatus');</script>");
+               //out.println("<script>window.alert(hi);</script>") ;
             }
-            catch(Exception e)
+             catch(Exception e)
             {
                 out.println(e);
             }

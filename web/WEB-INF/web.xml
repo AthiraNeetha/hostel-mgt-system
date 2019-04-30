@@ -232,6 +232,10 @@
         <servlet-name>staffaddjava</servlet-name>
         <servlet-class>staffaddjava</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>countjava</servlet-name>
+        <servlet-class>countjava</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>reg</servlet-name>
         <url-pattern>/reg</url-pattern>
@@ -463,6 +467,10 @@
     <servlet-mapping>
         <servlet-name>staffaddjava</servlet-name>
         <url-pattern>/staffaddjava</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>countjava</servlet-name>
+        <url-pattern>/countjava</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
